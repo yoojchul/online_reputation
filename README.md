@@ -2,16 +2,13 @@
 
 상장법인 네이버 뉴스 평판 분석기
 
-1) 상장법인목록.xls에서 (회사명, 종목코드) 읽기
-
+1) 상장법인목록.xls에서 (회사명, 종목코드) 읽기 <br>
     모든 상장법인의 종목 코드가 저장된 파일을 순차적으로 읽어 회사명과 종목코드를 추출
 
-2) 네이버 뉴스 검색으로 오늘 날짜 기사 URL 수집 후 본문 추출
-
+2) 네이버 뉴스 검색으로 오늘 날짜 기사 URL 수집 후 본문 추출 <br>
     네이버는 한번 검색에 100개의 기사 URL만 허용한다.  BeautifulSoup package를 이용해서 본문 text만 추출.
 
-3) llama.cpp (port 8000) EXAONE-3.5-32B로 감성 분석 (긍정/부정/중립)
-
+3) llama.cpp (port 8000) EXAONE-3.5-32B로 감성 분석 (긍정/부정/중립)  <br>
     ollama보다 메모리를 적게 사용하는 llama-server를 이용하여 한글 처리에 유리한 EXAONE-3.5를 실행 
 
 ```
@@ -25,11 +22,9 @@ llama-server \
 ```
 
 
-4) chase-<date>.csv에 결과 저장
-
-    파이썬 thread를 이용하여 3개의 thread가 동시에 네이버 뉴스 검색, 기사 평판을 별도로 실행해서 자원을 사용을 효율화. 
-
-평판을 얻기 위한 프롬프트는 다음과 같음. 
+4) chase-<date>.csv에 결과 저장 <br>
+    파이썬 thread를 이용하여 3개의 thread가 동시에 네이버 뉴스 검색, 기사 평판을 별도로 실행해서 자원을 사용을 효율화. <br>
+    평판을 얻기 위한 프롬프트는 다음과 같음. 
 
 ```
     prompt = (
@@ -43,7 +38,7 @@ llama-server \
 ```
 
 # 환경
-llama-server  8753 (5ba14d568)
-python 3.12.3
-LLM model EXAONE-3.5-32B-Instruct-Q4_K_M.gguf
+llama-server  8753 (5ba14d568) <br>
+python 3.12.3 <br>
+LLM model EXAONE-3.5-32B-Instruct-Q4_K_M.gguf <br>
 RTX 3090
