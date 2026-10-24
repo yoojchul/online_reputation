@@ -44,6 +44,9 @@ llama-server \
 
 # 환경
 llama-server  8753 (5ba14d568)
+
 python 3.12.3
+
 LLM model EXAONE-3.5-32B-Instruct-Q4_K_M.gguf
+
 RTX 3090
